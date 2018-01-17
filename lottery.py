@@ -15,13 +15,24 @@ whiteBallCo = 10
 megaBallNum = 12
 megaBallCo = 13
 
+#   To read a value, the format is lotteryTable[row][column]
 
 with open('MegaMillionsData.csv', newline='') as file:
     reader = csv.reader(file)
     for row in reader:
         megaMillionTable.append(row)
 
-#   To read a value, the format is lotteryTable[row][column]
+#   Creates the table of all indexed lottery games
+lotteryTable = []
+lotteryTable.append("Mega Millions")
+
+
+#   Choosing which lottery to view info of
+counter = 0
+for row in lotteryTable:
+    print("{",counter,"}\t",row)
+    
+question = input("\nWhich lottery would you like to see? ")
 
 question = input("Would you like to find a number? Y or N ")
 if question == 'Y':
