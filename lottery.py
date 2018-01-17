@@ -37,7 +37,7 @@ for row in lotteryTable:
     print("{",counter,"}\t",row)
     counter+=1
     
-question = int(input("\nWhich lottery would you like to see? "))
+question = int(input("\nWhich lottery would you like to see? -- "))
 
 #   This is the current lottery chosen by the user
 if(question == 0):
@@ -48,7 +48,7 @@ if(question == 1):
    
     
 #   Question of if you want to find a number
-question = input("Would you like to find a number? Y or N ")
+question = input("\nWould you like to find a number? Y or N -- ")
 if question == 'Y':
     rowValue = int(input("Row Number? "))
     colValue = int(input("Column Number? "))
@@ -57,12 +57,17 @@ if question == 'Y':
 
 #   Viewing the numbers on a given day
 counter = 0
-question = input("Would you like to see the numbers on a given day? Y or N ")
+question = input("\nWould you like to see the numbers on a given day? Y or N -- ")
 if question == 'Y':
     for i in currentLottery:
         if counter < 1:
             print("\n--- ",i[0]," ---")
             counter+=1
         else:
-            print("{",counter,"}\t",i[0])
-            counter+=1
+            if(i[0] != ""):
+                print("{",counter,"}\t",i[0])
+                counter+=1
+                
+question = int(input("\nWhich day? -- "))
+print()
+print(currentLottery[question][0],"---",currentLottery[question][1],"",currentLottery[question][2],"",currentLottery[question][3],"",currentLottery[question][4],"",currentLottery[question][5],"   ",currentLottery[question][6])
