@@ -40,28 +40,41 @@ for row in lotteryTable:
 question = int(input("\nWhich lottery would you like to see? -- "))
 
 #   This is the current lottery chosen by the user
-if(question == 0):
+if question == 0 :
     currentLottery = megaMillionTable
 
-if(question == 1):
+if question == 1 :
     currentLottery = powerballTable
    
 #   A main menu method, should be accessed after every method is complete
 def mainMenu():
-    print("{ 0 }  Change the lottery type being accessed")
+    print("\n{ 0 }  Change the lottery type being accessed")
     print("{ 1 }  View the winning numbers on a chosen day")
     print("{ 2 }  Top 10 most popular numbers")
     print("{ 3 }  Top 5 most popular powerball/megaball numbers")
-
+    print("{ 4 }  Find any number")
+    answer = int(input("\nWhich data? "))
+    if answer == 1:
+        print("Maybe later")
     
-#   Question of if you want to find a number
-question = input("\nWould you like to find a number? Y or N -- ")
-if question == 'Y':
-    rowValue = int(input("Row Number? "))
-    colValue = int(input("Column Number? "))
-    print(currentLottery[rowValue][colValue])
+    if answer == 2:
+        print("Maybe Later")
+    
+    if answer == 3:
+        print("Maybe Later")
+        
+    if answer == 4:
+        numberFind()
+
+#   Method for finding a number given coordinates for CSV file
+def numberFind():
+    if question == 'Y':
+        rowValue = int(input("Row Number? "))
+        colValue = int(input("Column Number? "))
+        print(currentLottery[rowValue][colValue])
 
 
+mainMenu()
 #   Printing all the dates stored of the given lottery
 counter = 0
 question = input("\nWould you like to see the numbers on a given day? Y or N -- ")
