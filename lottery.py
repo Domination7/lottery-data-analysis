@@ -24,6 +24,11 @@ with open('MegaMillionsData.csv', newline='') as file:
     for row in reader:
         megaMillionTable.append(row)
 
+with open('PowerballData.csv', newline='') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        powerballTable.append(row)
+
 
 #   Creates the table of all indexed lottery games
 lotteryTable = []
