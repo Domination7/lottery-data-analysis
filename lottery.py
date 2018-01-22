@@ -12,11 +12,13 @@ numTwo = 2
 numThree = 3
 numFour = 4
 numFive = 5
-megaBall = 6
-whiteBallNum = 9
-whiteBallCo = 10
-megaBallNum = 12
-megaBallCo = 13
+specialBall = 6   # Either Megaball or Powerball
+whiteBallNum = 8
+whiteBallCo = 9
+whiteBallPer = 10
+specialBallNum = 12  # Either Megaball or Powerball
+specialBallCo = 13  # Either Megaball or Powerball
+specialBallPer = 14  # Either Megaball or Powerball
 
 #   To read a value, the format is lotteryTable[row][column]
 with open('MegaMillionsData.csv', newline='') as file:
