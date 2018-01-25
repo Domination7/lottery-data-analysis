@@ -55,14 +55,16 @@ if question == 1 :
    
 #   A main menu method, should be accessed after every method is complete
 def mainMenu():
-    print("\n{ 0 }  Change the lottery type being accessed")
+    print("\n-----------------------------------------------------")
+    print("{ 0 }  Change the lottery type being accessed")
     print("{ 1 }  View the winning numbers on a chosen day")
     print("{ 2 }  Top 10 most popular numbers")
     print("{ 3 }  Top 5 most popular powerball/megaball numbers")
     print("{ 4 }  Find any number")
+    print("{ 99 }  Exit")
     answer = int(input("\nWhich data? "))
     if answer == 1:
-        print("Maybe later")
+        numberGivenDay()
     
     if answer == 2:
         print("Maybe Later")
@@ -72,6 +74,9 @@ def mainMenu():
         
     if answer == 4:
         numberFind()
+        
+    if answer == 99:
+        checkLetter = False
 
 #   Method for finding a number given coordinates for CSV file
 def numberFind():
@@ -79,13 +84,9 @@ def numberFind():
         rowValue = int(input("Row Number? "))
         colValue = int(input("Column Number? "))
         print(currentLottery[rowValue][colValue])
-
-
-mainMenu()
-#   Printing all the dates stored of the given lottery
-counter = 0
-question = input("\nWould you like to see the numbers on a given day? Y or N -- ")
-if question == 'Y':
+        
+def numberGivenDay():
+    counter = 0
     for i in currentLottery:
         if counter < 1:
             print("\n--- ",i[0]," ---")
@@ -94,8 +95,15 @@ if question == 'Y':
             if(i[0] != ""):
                 print("{",counter,"}\t",i[0])
                 counter+=1
-                
+                    
     question = int(input("\nWhich day? -- "))
     print()
     print(currentLottery[question][0],"---",currentLottery[question][1],"",currentLottery[question][2],"",currentLottery[question][3],"",currentLottery[question][4],"",currentLottery[question][5],"   ",currentLottery[question][6])    
+
+
+checkLetter = True
+
+while checkLetter:
+    mainMenu()
+
                 
