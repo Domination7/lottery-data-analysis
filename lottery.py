@@ -1,4 +1,5 @@
 import csv
+import time
 
 #   The indexed lottery matrices
 megaMillionTable = []
@@ -19,6 +20,8 @@ whiteBallPer = 10
 specialBallNum = 12  # Either Megaball or Powerball
 specialBallCo = 13  # Either Megaball or Powerball
 specialBallPer = 14  # Either Megaball or Powerball
+
+checkLetter = True
 
 #   To read a value, the format is lotteryTable[row][column]
 with open('MegaMillionsData.csv', newline='') as file:
@@ -67,7 +70,7 @@ def mainMenu():
         numberGivenDay()
     
     if answer == 2:
-        print("Maybe Later")
+        mostPopularWhite()
     
     if answer == 3:
         print("Maybe Later")
@@ -76,14 +79,14 @@ def mainMenu():
         numberFind()
         
     if answer == 99:
-        checkLetter = False
+        exit()
 
 #   Method for finding a number given coordinates for CSV file
 def numberFind():
-    if question == 'Y':
-        rowValue = int(input("Row Number? "))
-        colValue = int(input("Column Number? "))
-        print(currentLottery[rowValue][colValue])
+    rowValue = int(input("Row Number? "))
+    colValue = int(input("Column Number? "))
+    print(currentLottery[rowValue][colValue])
+    time.sleep(3)
         
 def numberGivenDay():
     counter = 0
@@ -98,12 +101,17 @@ def numberGivenDay():
                     
     question = int(input("\nWhich day? -- "))
     print()
-    print(currentLottery[question][0],"---",currentLottery[question][1],"",currentLottery[question][2],"",currentLottery[question][3],"",currentLottery[question][4],"",currentLottery[question][5],"   ",currentLottery[question][6])    
+    print(currentLottery[question][0],"---",currentLottery[question][1],"",currentLottery[question][2],"",currentLottery[question][3],"",currentLottery[question][4],"",currentLottery[question][5],"   ",currentLottery[question][6])
+    time.sleep(3)
 
+def mostPopularWhite():
+    counter = 0
+    for row in currentLottery:
+        counter+=1
+        if(counter < 71):
+            print(currentLottery[counter][8],"--",currentLottery[counter][9])
+    time.sleep(3)
 
-checkLetter = True
-
-while checkLetter:
+while True:
     mainMenu()
-
                 
