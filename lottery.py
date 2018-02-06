@@ -57,29 +57,39 @@ if question == 1 :
     currentLottery = powerballTable
    
 #   A main menu method, should be accessed after every method is complete
+#   2 and 3 will be done in excel, than accessed through python
 def mainMenu():
     print("\n-----------------------------------------------------")
     print("{ 0 }  Change the lottery type being accessed")
     print("{ 1 }  View the winning numbers on a chosen day")
-    print("{ 2 }  Top 10 most popular numbers")
-    print("{ 3 }  Top 5 most popular powerball/megaball numbers")
+#    print("{ 2 }  Top 10 most popular numbers")
+#    print("{ 3 }  Top 5 most popular powerball/megaball numbers")
     print("{ 4 }  Find any number")
+#    print("{ 5 } Highest lottery value")
+    print("{ 98 }  View whole table") 
     print("{ 99 }  Exit")
     answer = int(input("\nWhich data? "))
     if answer == 1:
         numberGivenDay()
     
     if answer == 2:
-        mostPopularWhite()
+        print("\n--- WIP ---\n")
     
     if answer == 3:
-        print("Maybe Later")
+        print("\n--- WIP ---\n")
         
     if answer == 4:
         numberFind()
         
+    if answer == 5:
+        print("\n--- WIP --\n")
+        
+    if answer == 98:
+        viewTable()
+        
     if answer == 99:
         exit()
+#    time.sleep(3)
 
 #   Method for finding a number given coordinates for CSV file
 def numberFind():
@@ -103,13 +113,10 @@ def numberGivenDay():
     print()
     print(currentLottery[question][0],"---",currentLottery[question][1],"",currentLottery[question][2],"",currentLottery[question][3],"",currentLottery[question][4],"",currentLottery[question][5],"   ",currentLottery[question][6])
     time.sleep(3)
-
-def mostPopularWhite():
-    counter = 0
+    
+def viewTable():
     for row in currentLottery:
-        counter+=1
-        if(counter < 71):
-            print(currentLottery[counter][8],"--",currentLottery[counter][9])
+        print(row) 
     time.sleep(3)
 
 while True:
