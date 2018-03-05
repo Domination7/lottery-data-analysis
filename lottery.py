@@ -41,34 +41,43 @@ lotteryTable.append("Mega Millions")
 lotteryTable.append("Powerball")
 
 
-#   Choosing which lottery to view info of
-counter = 0
-for row in lotteryTable:
-    print("{",counter,"}\t",row)
-    counter+=1
-   
-question = int(input("\nWhich lottery would you like to see? -- "))
 
-#   This is the current lottery chosen by the user
-if question == 0 :
-    currentLottery = megaMillionTable
+def changeLottery():
+    counter = 0
+    global question
+    global currentName
+    global currentLottery
+    for row in lotteryTable:
+        print("{",counter,"}\t",row)
+        counter+=1
+    question = int(input("\nWhich lottery would you like to see? -- "))
+    if question == 0 :
+        currentLottery = megaMillionTable
+        currentName = "Mega Millions"
+        
+    if question == 1 :
+        currentLottery = powerballTable
+        currentName = "Powerball"
+changeLottery() #First method executed
 
-if question == 1 :
-    currentLottery = powerballTable
-   
 #   A main menu method, should be accessed after every method is complete
 #   2 and 3 will be done in excel, than accessed through python
 def mainMenu():
     print("\n-----------------------------------------------------")
-    print("{ 0 }  Change the lottery type being accessed")
-    print("{ 1 }  View the winning numbers on a chosen day")
-#    print("{ 2 }  Top 10 most popular numbers")
-#    print("{ 3 }  Top 5 most popular powerball/megaball numbers")
-    print("{ 4 }  Find any number")
-#    print("{ 5 } Highest lottery value")
-    print("{ 98 }  View whole table") 
+    print("    The Current lottery is the",currentName)
+    print("-----------------------------------------------------")
+    print("{ 00 }  Change the lottery type being accessed")
+    print("{ 01 }  View the winning numbers on a chosen day")
+#    print("{ 02 }  Top 10 most popular numbers")
+#    print("{ 03 }  Top 5 most popular powerball/megaball numbers")
+    print("{ 04 }  Find any number")
+#    print("{ 05 } Highest lottery value")
+    print("{ 98 }  View raw data") 
     print("{ 99 }  Exit")
     answer = int(input("\nWhich data? "))
+    if answer == 0:
+        changeLottery()
+        
     if answer == 1:
         numberGivenDay()
     
